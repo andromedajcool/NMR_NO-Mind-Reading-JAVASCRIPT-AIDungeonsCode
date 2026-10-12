@@ -1,0 +1,29 @@
+const modifier = (text) => {
+
+  // ==========================================
+  // SCRIPT AUTHOR DETECTION
+  // ==========================================
+
+  if (isAuthorQuestion(text)) {
+    state.showScriptAuthor = true;
+  } else {
+    state.showScriptAuthor = false;
+  }
+// @cache-compatible
+
+// CREDIT
+// NMR No mind Reading
+// NO Mind Reading JAVASCRIPT
+// Created by Andromeda242526
+// @Andromeda242526
+// Context-modifier script to eliminate NPC telepathy.
+
+  // ==========================================
+  // DO NOT ALTER PLAYER INPUT
+  // ==========================================
+
+  return { text };
+};
+
+// Don't modify this part
+modifier(text);
