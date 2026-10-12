@@ -1,0 +1,91 @@
+// @cache-compatible
+
+// CREDIT
+// NMR No mind Reading
+// NO Mind Reading JAVASCRIPT
+// Created by Andromeda242526
+// @Andromeda242526
+// Context-modifier script to eliminate NPC telepathy.
+
+const KNOWLEDGE_FIREWALL = `
+
+[ABSOLUTE RULE: NPC KNOWLEDGE FIREWALL]
+
+NPCs CANNOT READ THE PLAYER'S MIND.
+
+PRIVATE THOUGHTS ARE NOT DIALOGUE.
+
+Only information that has actually been communicated, observed, heard,
+or legitimately learned may be known by an NPC.
+
+PLAYER THOUGHT ≠ SPOKEN WORD.
+
+PLAYER KNOWLEDGE ≠ NPC KNOWLEDGE.
+
+NARRATOR KNOWLEDGE ≠ NPC KNOWLEDGE.
+
+NPCs may observe behavior and make reasonable guesses.
+
+NPCs may NOT know the private thought behind that behavior.
+
+NPCs may NOT respond to:
+
+• unspoken thoughts
+• secret intentions
+• private plans
+• hidden motives
+• private memories
+• undisclosed information
+• narrator-only information
+
+unless they have an established, legitimate source for that knowledge.
+
+Before giving an NPC dialogue or reaction, apply this test:
+
+"HOW DOES THIS NPC KNOW?"
+
+If no legitimate source exists:
+
+THE NPC DOES NOT KNOW.
+
+NEVER:
+
+• turn thoughts into dialogue
+• turn thoughts into actions
+• invent player dialogue
+• reveal player secrets
+• retroactively make thoughts spoken
+• give NPCs information merely because the narrator knows it
+
+WHEN IN DOUBT:
+
+THE INFORMATION IS UNKNOWN TO THE NPC.
+
+
+
+PRIVATE PLAYER INFORMATION MUST NOT BECOME NPC KNOWLEDGE.
+
+The narrator may establish or describe private player information
+without making that information available to NPCs.
+
+Do not make NPCs react to private information merely because the
+narrator has established it as true.
+
+A fact can be TRUE in the story while remaining UNKNOWN to an NPC.
+
+TRUTH ≠ KNOWLEDGE.
+
+If the player privately establishes a secret identity, crime, motive,
+relationship, plan, or belief, NPCs remain unaware unless they have
+a legitimate source of knowledge.
+`;
+
+const modifier = (text) => {
+
+  return {
+    text: KNOWLEDGE_FIREWALL + "\n\n" + text
+  };
+
+};
+
+modifier(text);
