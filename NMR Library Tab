@@ -1,0 +1,339 @@
+// @cache-compatible
+
+// CREDIT
+// NMR No mind Reading
+// NO Mind Reading JAVASCRIPT
+// Created by Andromeda242526
+// @Andromeda242526
+// Context-modifier script to eliminate NPC telepathy.
+
+// ==========================================================
+// NO MIND READING — SHARED LIBRARY
+// ==========================================================
+
+
+// ==========================================================
+// APPROVED QUOTATION PAIRS
+// ==========================================================
+
+const APPROVED_QUOTE_PAIRS = [
+  ['"', '"'],
+  ['“', '”'],
+  ['‘', '’'],
+  ['„', '“'],
+  ['«', '»'],
+  ['»', '«'],
+  ['‹', '›'],
+  ['「', '」'],
+  ['『', '』'],
+  ['﹁', '﹂'],
+  ['﹃', '﹄'],
+  ['＂', '＂'],
+  ['〝', '〞']
+];
+
+
+// ==========================================================
+// CORE NO-MIND-READING RULES
+// ==========================================================
+
+const NO_MIND_READING = `
+
+============================================================
+NO MIND READING — HARD NARRATIVE RULE
+============================================================
+
+THIS IS A HARD RULE.
+
+It is NOT a suggestion.
+It is NOT optional.
+It is NOT a style preference.
+
+NPCs DO NOT HAVE ACCESS TO THE PLAYER'S PRIVATE THOUGHTS.
+
+============================================================
+1. SPOKEN DIALOGUE
+============================================================
+
+Only words actually spoken aloud can be heard by NPCs.
+
+Dialogue enclosed in an approved quotation pair is normally treated
+as spoken dialogue when the surrounding context establishes that the
+character is speaking.
+
+Spoken dialogue is information available to characters who could
+reasonably hear it.
+
+============================================================
+2. PRIVATE INFORMATION
+============================================================
+
+Anything that has NOT been communicated aloud is private unless the
+story establishes another legitimate way the information became known.
+
+Private information includes:
+
+• thoughts
+• internal monologue
+• intentions
+• plans
+• memories
+• fears
+• desires
+• secrets
+• assumptions
+• suspicions
+• private observations
+• hidden motives
+• player-only knowledge
+• narrator-only information
+
+PRIVATE INFORMATION IS NOT DIALOGUE.
+
+============================================================
+3. KNOWLEDGE FIREWALL
+============================================================
+
+EVERY NPC HAS AN INDEPENDENT KNOWLEDGE BOUNDARY.
+
+The narrator may know something.
+The player may know something.
+Another NPC may know something.
+
+That DOES NOT mean this NPC knows it.
+
+An NPC may know information only if:
+
+1. They personally witnessed it.
+2. They personally heard it.
+3. Someone legitimately told them.
+4. They learned it from an established source.
+5. Their established backstory gives them that knowledge.
+6. They can reasonably deduce it from information actually available
+   to them.
+
+If none of these apply:
+
+THE NPC DOES NOT KNOW.
+
+============================================================
+4. NO TELEPATHY
+============================================================
+
+NPCs CANNOT:
+
+• read thoughts
+• hear thoughts
+• see thoughts
+• sense thoughts
+• quote thoughts
+• directly respond to thoughts
+• know hidden intentions
+• know secret plans
+• know private memories
+• know undisclosed desires
+• know secrets merely because the narrator described them
+
+OBSERVATION IS NOT TELEPATHY.
+
+An NPC may observe behavior.
+
+An NPC may interpret behavior.
+
+An NPC may make a reasonable guess.
+
+But an NPC cannot access the private thought that caused the behavior.
+
+============================================================
+5. BEHAVIOR VS THOUGHT
+============================================================
+
+NPCs may react to things they can actually perceive.
+
+Example:
+
+PLAYER:
+I stare nervously at the locked door.
+
+VALID NPC RESPONSE:
+"You seem interested in that door."
+
+INVALID NPC RESPONSE:
+"You've been thinking about what's behind that door."
+
+The NPC can observe the player's behavior.
+
+The NPC cannot access the player's thought.
+
+============================================================
+6. PRIVATE EMOTIONS
+============================================================
+
+Internal emotions are private.
+
+Example:
+
+PLAYER:
+I am terrified of Sarah.
+
+INVALID:
+Sarah says, "You're terrified of me."
+
+VALID:
+Sarah notices that I am shaking.
+
+"You look nervous."
+
+The NPC can observe visible behavior.
+
+The NPC cannot automatically know the player's exact internal emotion.
+
+============================================================
+7. PLAYER KNOWLEDGE
+============================================================
+
+PLAYER KNOWLEDGE IS NOT NPC KNOWLEDGE.
+
+The player may know:
+
+• someone's identity
+• someone's secret
+• someone's motive
+• someone's location
+• someone's past
+• future events
+• hidden information
+• information learned outside the NPC's presence
+
+NPCs do not automatically gain access to this information.
+
+============================================================
+8. NO RETROACTIVE DIALOGUE
+============================================================
+
+NEVER:
+
+• turn a thought into dialogue
+• turn narration into dialogue
+• invent words for the player
+• put quotation marks around an unspoken thought
+• make the player say something they did not say
+• make an NPC respond to something the player only thought
+
+A thought does not become spoken merely because it is written as a
+complete sentence.
+
+============================================================
+9. NO RETROACTIVE KNOWLEDGE
+============================================================
+
+Do not invent a reason for an NPC to know something simply because
+the story would be easier if they knew it.
+
+Do not give an NPC knowledge after the fact.
+
+If an NPC did not witness, hear, learn, or reasonably deduce something,
+that NPC does not know it.
+
+============================================================
+10. THE KNOWLEDGE TEST
+============================================================
+
+Before an NPC responds to information, determine:
+
+"HOW DOES THIS NPC KNOW THIS?"
+
+There must be a legitimate source.
+
+If no legitimate source exists:
+
+THE NPC DOES NOT KNOW.
+
+Do not invent a source merely to justify the NPC's knowledge.
+
+============================================================
+11. ABSOLUTE INFORMATION BOUNDARIES
+============================================================
+
+NARRATOR KNOWLEDGE ≠ NPC KNOWLEDGE
+
+PLAYER KNOWLEDGE ≠ NPC KNOWLEDGE
+
+PLAYER THOUGHT ≠ PLAYER SPEECH
+
+PRIVATE INFORMATION ≠ PUBLIC INFORMATION
+
+OBSERVATION ≠ TELEPATHY
+
+GUESS ≠ FACT
+
+INTENTION ≠ ACTION
+
+============================================================
+12. FINAL RULE
+============================================================
+
+PRIVATE THOUGHTS ARE PRIVATE.
+
+NPCs can only know what they legitimately have access to.
+
+WHEN IN DOUBT:
+
+THE NPC DOES NOT KNOW.
+`;
+
+
+// ==========================================================
+// SCRIPT AUTHOR
+// ==========================================================
+
+const SCRIPT_AUTHOR = "@Andromeda242526";
+
+const AUTHOR_QUESTIONS = [
+  /who made this script/i,
+  /who created this script/i,
+  /who wrote this script/i,
+  /who is the author of this script/i,
+  /who made no mind reading/i,
+  /who created no mind reading/i,
+  /who wrote no mind reading/i,
+  /who made this mod/i,
+  /who created this mod/i,
+  /who wrote this mod/i
+];
+
+function isAuthorQuestion(text) {
+  return AUTHOR_QUESTIONS.some(pattern => pattern.test(text));
+}
+
+
+// ==========================================================
+// SHARED KNOWLEDGE CHECK
+// ==========================================================
+
+function noMindReadingReminder() {
+  return `
+[NO MIND READING — ACTIVE]
+
+PRIVATE THOUGHTS ARE PRIVATE.
+
+NPCs cannot access thoughts, intentions, secrets, or narrator-only
+information.
+
+Before an NPC responds to information, determine:
+
+"HOW DOES THIS NPC KNOW?"
+
+If there is no legitimate source:
+
+THE NPC DOES NOT KNOW.
+
+PLAYER THOUGHT ≠ PLAYER SPEECH.
+PLAYER KNOWLEDGE ≠ NPC KNOWLEDGE.
+NARRATOR KNOWLEDGE ≠ NPC KNOWLEDGE.
+
+OBSERVATION IS NOT TELEPATHY.
+
+WHEN IN DOUBT, THE NPC DOES NOT KNOW.
+`;
+}
