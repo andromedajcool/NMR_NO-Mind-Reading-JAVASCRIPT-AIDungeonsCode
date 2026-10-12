@@ -1,0 +1,29 @@
+// @cache-compatible
+
+// CREDIT
+// NMR No mind Reading
+// NO Mind Reading JAVASCRIPT
+// Created by Andromeda242526
+// @Andromeda242526
+// Context-modifier script to eliminate NPC telepathy.
+
+const modifier = (text) => {
+
+  // ==========================================
+  // SCRIPT AUTHOR RESPONSE
+  // ==========================================
+
+  if (state.showScriptAuthor === true) {
+
+    state.showScriptAuthor = false;
+
+    return {
+      text: `This script was made by @Andromeda242526.`
+    };
+  }
+
+  return { text };
+};
+
+// Don't modify this part
+modifier(text);
