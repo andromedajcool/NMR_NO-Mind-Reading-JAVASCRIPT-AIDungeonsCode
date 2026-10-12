@@ -73,4 +73,4 @@ This repository mirrors the exact multi-tab architecture required by the AI Dung
 ---
 
 ### Keywords & Search Indexing Tags
-`AI Dungeon Scripting`, `No Mind Reading AI Dungeon`, `NMR Script`, `AI Dungeon Javascript`, `Andromeda242526`, `andromedajcool`, `AI Dungeon Mod`, `Context Modifier AI Dungeon`, `NPC Telepathy Fix`.
+`AI Dungeon Scripting`, `No Mind Reading AI Dungeon`, `NMR Script`, `AI Dungeon Javascript`, `Andromeda242526`, `andromedajcool`, `AI Dungeon Mod`, `Context Modifier AI Dungeon`, `NPC Telepathy Fix`, `BBUMrV1Uq7ec`.
