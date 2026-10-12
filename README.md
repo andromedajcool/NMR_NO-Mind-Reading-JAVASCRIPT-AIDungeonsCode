@@ -1,0 +1,1 @@
+# NMR_NO-Mind-Reading-JAVASCRIPT-AIDungeonsCode
