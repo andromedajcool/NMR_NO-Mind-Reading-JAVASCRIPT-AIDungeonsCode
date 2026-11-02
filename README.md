@@ -3,6 +3,7 @@
 Probably should put the current NMR code from my AI Dungeon script
 # NO Mind Reading JAVASCRIPT 
 on here. 
+by User: @Andromeda242526
 
 https://play.aidungeon.com/script/BBUMrV1Uq7ec/no-mind-reading-javascript?share=true&published=true
 
@@ -73,4 +74,4 @@ This repository mirrors the exact multi-tab architecture required by the AI Dung
 ---
 
 ### Keywords & Search Indexing Tags
-`AI Dungeon Scripting`, `No Mind Reading AI Dungeon`, `NMR Script`, `AI Dungeon Javascript`, `Andromeda242526`, `andromedajcool`, `AI Dungeon Mod`, `Context Modifier AI Dungeon`, `NPC Telepathy Fix`, `BBUMrV1Uq7ec`.
+`AI Dungeon Scripting`, `No Mind Reading AI Dungeon`, `NMR Script`, `AI Dungeon Javascript`, `Andromeda242526`, `andromedajcool`, `AI Dungeon Mod`, `Context Modifier AI Dungeon`, `NPC Telepathy Fix`, `BBUMrV1Uq7ec`, `AIDungeon`.
