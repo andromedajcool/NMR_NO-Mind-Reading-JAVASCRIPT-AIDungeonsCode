@@ -1,0 +1,15 @@
+// INPUT and OUTPUT Tabs
+// @cache-compatible
+const modifier = (text) => {
+  return { text };
+};
+modifier(text);
+
+
+
+// CONTEXT Tab
+// @cache-compatible
+const modifier = (text) => ({
+  text: text + "\n\n" + NMR_RULES
+});
+modifier(text);
