@@ -17,6 +17,11 @@ Code by:
 NOTES: on occasion I may tweak the code a little. Seems to need to happen about every month or 2. Shouldn't happen as often now.
 It's really a simple code. And I'm so happy to see that it is being enjoyed and beloved by others. 
 
+So added the OPTIMIZED Version. The Library Tab "OPTIMIZED Library NMR" will all go into the Library Tab.
+For the other 3, You will find a small note in "OPTIMIZED NMR Tabs pt 2"
+Copy and paste lines 2-6 and Paste that SAME CODE in the Output and Input tabs. 
+Lines 11-15 are what goes into the Context tab. 
+
 <!-- 
 SEO Metadata Tags for Web Crawlers
 Primary Author: @Andromeda242526
