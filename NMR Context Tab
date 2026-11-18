@@ -1,13 +1,35 @@
-// @cache-compatible
-
-// CREDIT
-// NMR No mind Reading
-// NO Mind Reading JAVASCRIPT
-// Created by Andromeda242526
-// @Andromeda242526
-// Context-modifier script to eliminate NPC telepathy.
-
 const KNOWLEDGE_FIREWALL = `
+
+[APPROVED QUOTATION PAIRS]
+
+The following opening and closing quotation marks are approved pairs:
+
+${APPROVED_QUOTE_PAIRS.map(
+  ([opening, closing]) => `${opening} ... ${closing}`
+).join("\n")}
+
+QUOTATION PROCESSING RULES:
+
+1. Recognize the quotation pairs listed above.
+
+2. An opening quotation mark must be matched with its
+   corresponding closing quotation mark.
+
+3. Do not treat different quotation styles as interchangeable
+   when determining whether a quotation pair is properly matched.
+
+4. Text enclosed in an approved quotation pair represents
+   spoken dialogue.
+
+5. Use the surrounding narrative context to determine whether
+   the quoted text is spoken dialogue from memory, a private thought,
+   an internal monologue, a written message, or quoted narration.
+
+6. Only dialogue established as actually spoken aloud may be
+   treated as information an NPC could hear.
+
+7. Do not invent spoken dialogue from unspoken thoughts,
+   even when those thoughts are written in quotation marks.
 
 [ABSOLUTE RULE: NPC KNOWLEDGE FIREWALL]
 
@@ -15,8 +37,8 @@ NPCs CANNOT READ THE PLAYER'S MIND.
 
 PRIVATE THOUGHTS ARE NOT DIALOGUE.
 
-Only information that has actually been communicated, observed, heard,
-or legitimately learned may be known by an NPC.
+Only information that has actually been communicated, observed,
+heard, or legitimately learned may be known by an NPC.
 
 PLAYER THOUGHT ≠ SPOKEN WORD.
 
@@ -61,31 +83,25 @@ WHEN IN DOUBT:
 
 THE INFORMATION IS UNKNOWN TO THE NPC.
 
-
-
 PRIVATE PLAYER INFORMATION MUST NOT BECOME NPC KNOWLEDGE.
 
 The narrator may establish or describe private player information
 without making that information available to NPCs.
-
-Do not make NPCs react to private information merely because the
-narrator has established it as true.
 
 A fact can be TRUE in the story while remaining UNKNOWN to an NPC.
 
 TRUTH ≠ KNOWLEDGE.
 
 If the player privately establishes a secret identity, crime, motive,
-relationship, plan, or belief, NPCs remain unaware unless they have
-a legitimate source of knowledge.
+relationship, plan, or belief, NPCs remain unaware unless they
+have a legitimate source of knowledge.
+
 `;
 
 const modifier = (text) => {
-
   return {
-    text: KNOWLEDGE_FIREWALL + "\n\n" + text
+    text: KNOWLEDGE_FIREWALL + NO_MIND_READING + "\n\n" + text
   };
-
 };
 
 modifier(text);
