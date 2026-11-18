@@ -1,21 +1,14 @@
-// @cache-compatible
-
-// CREDIT
 // NMR No mind Reading
 // NO Mind Reading JAVASCRIPT
-// Created by Andromeda242526
 // @Andromeda242526
 // Context-modifier script to eliminate NPC telepathy.
-
 // ==========================================================
 // NO MIND READING — SHARED LIBRARY
 // ==========================================================
 
-
 // ==========================================================
 // APPROVED QUOTATION PAIRS
 // ==========================================================
-
 const APPROVED_QUOTE_PAIRS = [
   ['"', '"'],
   ['“', '”'],
@@ -31,8 +24,6 @@ const APPROVED_QUOTE_PAIRS = [
   ['＂', '＂'],
   ['〝', '〞']
 ];
-
-
 // ==========================================================
 // CORE NO-MIND-READING RULES
 // ==========================================================
@@ -252,7 +243,7 @@ THE NPC DOES NOT KNOW.
 Do not invent a source merely to justify the NPC's knowledge.
 
 ============================================================
-11. ABSOLUTE INFORMATION BOUNDARIES
+11.A. ABSOLUTE INFORMATION BOUNDARIES
 ============================================================
 
 NARRATOR KNOWLEDGE ≠ NPC KNOWLEDGE
@@ -270,6 +261,14 @@ GUESS ≠ FACT
 INTENTION ≠ ACTION
 
 ============================================================
+11.B. NARRATOR KNOWLEDGE
+============================================================
+
+The WRITER can have access to any and all NPC internal thoughts ONLY WHEN PROMPTED. 
+
+NPC CANNOT read EACHOTHER's MINDS.
+
+============================================================
 12. FINAL RULE
 ============================================================
 
@@ -280,39 +279,11 @@ NPCs can only know what they legitimately have access to.
 WHEN IN DOUBT:
 
 THE NPC DOES NOT KNOW.
-`;
 
+============================================================
+13. NO MIND READING REMINDER
+============================================================
 
-// ==========================================================
-// SCRIPT AUTHOR
-// ==========================================================
-
-const SCRIPT_AUTHOR = "@Andromeda242526";
-
-const AUTHOR_QUESTIONS = [
-  /who made this script/i,
-  /who created this script/i,
-  /who wrote this script/i,
-  /who is the author of this script/i,
-  /who made no mind reading/i,
-  /who created no mind reading/i,
-  /who wrote no mind reading/i,
-  /who made this mod/i,
-  /who created this mod/i,
-  /who wrote this mod/i
-];
-
-function isAuthorQuestion(text) {
-  return AUTHOR_QUESTIONS.some(pattern => pattern.test(text));
-}
-
-
-// ==========================================================
-// SHARED KNOWLEDGE CHECK
-// ==========================================================
-
-function noMindReadingReminder() {
-  return `
 [NO MIND READING — ACTIVE]
 
 PRIVATE THOUGHTS ARE PRIVATE.
@@ -335,5 +306,6 @@ NARRATOR KNOWLEDGE ≠ NPC KNOWLEDGE.
 OBSERVATION IS NOT TELEPATHY.
 
 WHEN IN DOUBT, THE NPC DOES NOT KNOW.
+
+
 `;
-}
