@@ -2,8 +2,7 @@
 
 Probably should put the current NMR code from my AI Dungeon script
 # NO Mind Reading JAVASCRIPT 
-on here. 
-by User: @Andromeda242526
+on here. by User: @Andromeda242526 
 
 https://play.aidungeon.com/script/BBUMrV1Uq7ec/no-mind-reading-javascript?share=true&published=true
 
@@ -15,11 +14,8 @@ This script provides an easy way to try and prevent that from happening!
 Code by: 
 @Andromeda242526
 
-NOTES: on occasion I may tweak the code a little. Seems to need to happen about every month or 2. 
-
-
-
-
+NOTES: on occasion I may tweak the code a little. Seems to need to happen about every month or 2. Shouldn't happen as often now.
+It's really a simple code. And I'm so happy to see that it is being enjoyed and beloved by others. 
 
 <!-- 
 SEO Metadata Tags for Web Crawlers
@@ -47,12 +43,12 @@ The definitive **NMR (No Mind Reading)** script framework designed exclusively f
 
 ## 📝 About the Script
 
-Have you ever typed out a private thought or hidden backstory element for your character, only to have neighboring NPCs instantly react to it as if you said it out loud? This script completely eliminates that immersion-breaking behavior.
+Have you ever typed out a private thought or hidden backstory element for your character, only to have neighboring NPCs instantly react to it as if you said it out loud? This script aims to completely eliminates that immersion-breaking behavior.
 
 ### Core Features:
 * **Strict Dialogue Separation:** Anything wrapped inside quotation marks (`""`) is treated strictly as vocalized speech.
 * **Narrative Cloaking:** Everything written outside of quotation marks is treated as internal monologue, hidden feelings, or environmental descriptions, making it completely invisible to NPC perception.
-* **International Quotation Support:** Fully parsed layout engine supporting global quotation marks, including: `„ “`, `« »`, `» «`, `‹ ›`, `「 」`, and more.
+* **International Quotation Support:** Fully parsed layout engine supporting global quotation marks, including: `„ “`, `« »`, `» «`, `‹ ›`, `「 」`, etc.
 
 ---
 
@@ -64,6 +60,8 @@ This repository mirrors the exact multi-tab architecture required by the AI Dung
 * `/NMR Input Tab` — Sanitizes player input before processing.
 * `/NMR Library Tab` — Core global functions and quote-parsing algorithms.
 * `/NMR Output Tab` — Processes and formats the generated AI response.
+
+* `/OPTIMIZED Library Tab NMR` — Added Library for OPTIMIZED NMR.
 
 ---
 
