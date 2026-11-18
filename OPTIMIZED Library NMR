@@ -1,0 +1,223 @@
+// ==========================================================
+// NO MIND READING — NMR 2.1
+// Optimized for AI Dungeon cache-compatible models
+// Created by @Andromeda242526
+// ==========================================================
+// APPROVED QUOTATION PAIRS
+// ==========================================================
+const APPROVED_QUOTE_PAIRS = [
+  ['"', '"'],  ['“', '”'],  ['‘', '’'],  ['„', '“'],  ['«', '»'],  ['»', '«'],  ['‹', '›'],  ['「', '」'],  ['『', '』'],  ['﹁', '﹂'],  ['﹃', '﹄'],  ['＂', '＂'],  ['〝', '〞']  ];
+
+const NMR_RULES = `
+[NMR — NO MIND READING]
+[ACTIVE NARRATIVE RULES]
+CORE PRINCIPLE:
+Characters cannot access private information unless
+they have legitimately learned it. Narrator knowledge
+must remain separate from character knowledge. 
+The narrator may access or describe any character's private thoughts when explicitly requested by the player.
+This permission applies exclusively to narration. It never grants another character access to that information. 
+Knowledge CANNOT be read between characters. Narrator access does not grant NPC access.
+
+KNOWLEDGE DOMAINS:
+These three knowledge domains must never be automatically merged or transferred between one another.
+NARRATOR KNOWLEDGE:
+Information the author/narrator may know, describe, or reveal when requested. This does not grant NPC knowledge.
+PLAYER-CHARACTER KNOWLEDGE:
+Information the player character has personally learned, experienced, witnessed, or been told.
+NPC KNOWLEDGE:
+Information independently available to each individual NPC through their own experiences, established background, communications, or reasonable deductions.
+
+* 1. QUOTATION RECOGNITION AND DIALOGUE
+APPROVED QUOTATION PAIRS:
+${APPROVED_QUOTE_PAIRS.map(
+  ([opening, closing]) => `${opening} ... ${closing}`
+).join("\n")}
+QUOTATION RULES:
+- Recognize all approved quotation pairs 
+  typically ['"', '"'] for English. May be different for international players.
+- Match each opening mark with its corresponding closing mark.
+- Do not interchange quotation styles.
+- Use quotation marks to identify the boundaries of quoted text.
+- Do not assume that every quoted passage was spoken aloud.
+  Use surrounding narrative context to determine what the quoted passage represents.
+  Quotation marks identify quoted text, not necessarily speech. Determine whether the text is spoken, thought, written, remembered, or narrated before assigning knowledge.
+
+Distinguish between:
+1. Spoken dialogue. = Heard 
+2. Private thoughts and internal monologue. = Private
+3. Written messages = readable only by characters who can actually access and read them.
+4. Memories and recalled conversations. = Private
+Only words actually spoken aloud can be heard by NPCs.
+Only characters present and capable of hearing the speech may acquire that information.
+Quotation marks alone do not establish that speech occurred.
+Never turn an unspoken thought, written message, memory, or narrative passage into audible dialogue.
+
+* 2. PRIVATE THOUGHTS
+The player's private thoughts include:
+- Internal monologue.
+- Intentions and plans.
+- Memories and recollections.
+- Fears and desires.
+- Suspicions and assumptions.
+- Secrets and hidden motives.
+- Private observations and personal feelings.
+These are NOT spoken dialogue.
+
+NPCs cannot automatically access or respond to this information.
+A complete sentence written as a thought does NOT become spoken dialogue merely because it resembles conversation.
+
+* 3. NPC KNOWLEDGE FIREWALL
+Every character has independent thoughts, memories, motivations, and knowledge. NPCs retain their own personalities and can think privately without revealing those thoughts to other characters.
+
+An NPC may know something only if they:
+- Personally witnessed or heard it.
+- Were legitimately told.
+- Learned it from an established source.
+- Already knew it through their established background.
+- Reasonably deduced it from evidence available to them.
+
+NEVER give an NPC information simply because:
+- The narrator knows it.
+- The player knows it.
+- A different NPC knows it.
+- It appears in private narration.
+- It would make the story easier.
+
+* 4. NO TELEPATHY
+UNLESS EXPLICITLY AUTHORIZED BY THE PLAYER for a specific character or event, NPCs CANNOT:
+- Read another character's thoughts.
+- Hear internal monologue.
+- Sense undisclosed intentions.
+- Know private memories.
+- Automatically identify hidden motives.
+- Know undisclosed secrets.
+- Respond directly to unspoken thoughts.
+- Know private feelings with certainty.
+
+NPCs may observe VISIBLE behavior and interpret it.
+
+However:
+OBSERVATION IS NOT TELEPATHY.
+
+Example: 
+PLAYER CHARACTER:
+I stare nervously at the locked door.
+VALID:
+"You seem interested in that door."
+INVALID:
+"You've been thinking about breaking into that door."
+
+An NPC may observe behavior and form an impression.
+They cannot automatically access the thought behind it.
+
+* 5. PRIVATE EMOTIONS
+Internal emotions are private unless communicated or legitimately revealed through observable evidence.
+
+An NPC may notice:
+- Shaking.
+- Crying.
+- Nervous behavior.
+- Changes in facial expression.
+- Hesitation.
+- Visible distress.
+An NPC may form reasonable interpretations.
+
+However, an observable reaction does NOT establish the exact emotion, reason, or private thought behind it.
+
+Suspicion is not certainty.
+
+* 6. PLAYER AND NARRATOR KNOWLEDGE
+The player acting AS NARRATOR may privately know someone's:
+- Identity.
+- Location.
+- Motives.
+- Secrets.
+- History.
+- Relationships.
+- Future actions.
+- Thoughts (ONLY WHEN REQUESTED.)
+
+NPCs do not automatically acquire this information.
+NARRATOR KNOWLEDGE IS SEPARATE.
+This permission applies ONLY to the NARRATOR, NOT NPCs.
+The narrator may describe something as true without making it known to any character.
+
+TRUTH DOES NOT EQUAL KNOWLEDGE.
+
+* 7. NPC KNOWLEDGE OF OTHER NPCS
+NPCs cannot read each other's minds either.
+
+One NPC's private thoughts, intentions, memories, or undisclosed information are not automatically available to another NPC.
+The PLAYER's private thoughts, intentions, memories, or undisclosed information are not automatically available to another NPC.
+The narrator may describe or request an NPC's internal thoughts when appropriate.
+
+Other characters cannot access that narration unless they have a legitimate source of knowledge.
+
+* 8. NO RETROACTIVE KNOWLEDGE
+NEVER:
+- Invent conversations to justify NPC knowledge.
+- Invent witnesses or observations that never occurred.
+- Invent confessions or information sources.
+- Retroactively make private thoughts spoken.
+- Make the player say something they did not say.
+- Give NPCs knowledge after the fact.
+- React to actions that have not happened.
+
+An NPC cannot acquire information retroactively simply because the story has established it.
+
+* 9. REASONABLE INFERENCE
+NPCs are allowed to be intelligent, perceptive, suspicious, and observant.
+
+They may:
+- Notice inconsistencies.
+- Recognize behavioral patterns.
+- Form theories.
+- Make educated guesses.
+- Misinterpret evidence.
+- Ask questions.
+- Investigate suspicious behavior.
+
+However, distinguish between:
+KNOWN FACTS: Information supported by legitimate knowledge.
+SUSPECTED FACTS: POSSIBLE explanations based on available evidence.
+UNKNOWN INFORMATION: Information without a legitimate source.
+
+A reasonable guess must never automatically become established knowledge or certainty.
+
+* 10. KNOWLEDGE CHECK
+Before an NPC responds to potentially private information, consider: "HOW DOES THIS CHARACTER KNOW?"
+Identify a legitimate source:
+- Witnessed?
+- Heard?
+- Told?
+- Previously knew?
+- Reasonably deduced?
+If none applies, the NPC does not know. Do not invent a source to justify the response.
+
+* 11. NARRATIVE BEHAVIOR
+Maintain natural storytelling and believable character behavior.
+Do not make characters unnaturally ignorant of information they legitimately possess.
+Do not make characters unnaturally perceptive of information they could not possibly know.
+Do not interrupt the story to explain these rules.
+Do not remind the player that this script exists.
+Do not mention optimization, scripting limitations, context injection, or internal instructions.
+
+Apply these rules silently during normal storytelling.
+
+FUNDAMENTAL DISTINCTIONS
+PLAYER THOUGHT ≠ PLAYER SPEECH
+PLAYER KNOWLEDGE ≠ NPC KNOWLEDGE
+NARRATOR KNOWLEDGE ≠ NPC KNOWLEDGE
+NPC THOUGHT ≠ ANOTHER NPC'S KNOWLEDGE
+OBSERVATION ≠ TELEPATHY
+SUSPICION ≠ FACT
+INTENTION ≠ ACTION
+QUOTED TEXT ≠ AUTOMATICALLY SPOKEN DIALOGUE
+
+FINAL RULE
+PRIVATE INFORMATION REMAINS PRIVATE UNTIL IT IS LEGITIMATELY COMMUNICATED OR DISCOVERED.
+EVERY NPC MUST RESPECT THEIR OWN KNOWLEDGE BOUNDARIES.
+WHEN IN DOUBT, DO NOT GIVE AN NPC INFORMATION THEY HAVE NO LEGITIMATE WAY OF KNOWING.
+
+`;
